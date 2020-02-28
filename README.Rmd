@@ -14,14 +14,16 @@ knitr::opts_chunk$set(
 
 This is some code (it is less than an R package) for estimating a distribution of a latent variable using Kotlarski's Lemma; in particular, implementing the results in Li and Vuong (1998).
 
-The setup is one where one is interested in the distribution of some latent variable $X$.  One observes two measured with error versions of $X$; call these $X_1$ and $X_2$, and they are given by
+The setup is one where one is interested in the distribution of some latent variable X.  One observes two measured with error versions of X; call these X_1 and X_2, and they are given by
 
-\begin{align*}
-  X_1 &= X + \epsilon_1 \\
-  X_2 &= X + \epsilon_2
-\end{align*}
 
-and under the condition that $X$, $\epsilon_1$, and $\epsilon_2$ are mutually independent.  The provided code (two files: `kotlarski.R` and `tuning_parameters.R`) will estimate the pdf of $X$ in this case.
+<center>
+  X_1 = X + e_1 <br>
+  X_2 = X + e_2
+</center>
+
+
+and under the condition that X, e_1, and e_2 are mutually independent.  The provided code (two files: `kotlarski.R` and `tuning_parameters.R`) will estimate the pdf of X in this case.
 
 To get things working, you to follow the following steps
 
@@ -59,5 +61,13 @@ X1 <- X + e1
 X2 <- X + e2
 
 
+# run the code to produce the pdf of x
+dd <- cf2dens(kotlarski, tgrid, xgrid)
+
+# plot the estimated pdf
+plot(xgrid, dd)
+
+# compare to true pdf
+curve(dnorm(x), add=TRUE)        
 
 ```
