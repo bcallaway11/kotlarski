@@ -3,6 +3,7 @@
 #-----------------------------------------------------------------------------
 
 # load the code
+source("~/Dropbox/kotlarski/R/tuning_parameters.R")
 source("~/Dropbox/kotlarski/R/kotlarski.R")
 
 n <- 5000
