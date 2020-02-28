@@ -27,7 +27,6 @@ cf2dens.inner <- function(t, cf, x) {
 #'
 #' @return vector of values of pdf for all values of xgrid
 cf2dens <- function(cf, tgrid, xgrid) {
-    1+1
     innermat <- pbapply::pbsapply(xgrid, function(x) {
         sapply(tgrid, function(t) {
             cf2dens.inner(t, cf=cf, x=x)
@@ -35,8 +34,7 @@ cf2dens <- function(cf, tgrid, xgrid) {
     }, cl=4)
     dens.1 <- apply(innermat, 2, sum)
     dens <- (dens.1*dt)/(2*pi)
-    return(Re(dens))
-    1+1
+    Re(dens)
 }
 
 #' @title cfX2
